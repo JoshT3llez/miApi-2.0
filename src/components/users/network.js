@@ -34,6 +34,23 @@ function getUser(req, res) {
     .catch((error) => res.send(error))
 }
 
+function updateUser(req, res) {
+    const { auth } = req;
+    const {
+        email,
+        password,
+        displayName
+    } = req.body;
+
+    Controller.actualizarUsuario({
+        auth,
+        email,
+        password,
+        displayName
+    })
+    .then((result) => res.send(result))
+    .catch((error) => res.send(error));
+}
 // /users post agregar
 // /users patch actualizar
 // /users delete eliminar

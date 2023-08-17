@@ -23,6 +23,20 @@ async function getUser(params) {
 
     return user;
 }
+
+//lo puse en español porque si como chicken XD
+//Funcion de como actualizar usuario
+async function actualizarUsuario(params) {
+    const { auth, email, displayName, password } = params;
+
+    const user = await auth.updatUserByEmail(email, {
+        displayName,
+        password,
+    });
+
+    return user;
+}
+
 module.exports = {
     addUser,
     getUser,
